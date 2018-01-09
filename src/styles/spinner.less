@@ -1,0 +1,41 @@
+@deep: ~'>>>';
+
+@import './wave-dots';
+@import './circles';
+@import './bubbles';
+
+// default spinner
+.loading-default {
+  position: relative;
+  border: 1px solid #999;
+  animation: loading-rotating ease 1.5s infinite;
+  &:before {
+    @size: 6px;
+    content: '';
+    display: block;
+    top: 0;
+    left: 50%;
+    margin-top: -@size/2;
+    margin-left: -@size/2;
+    width: @size;
+    height: @size;
+    background-color: #999;
+  }
+}
+
+// spiral spinner
+.loading-spiral {
+  border: 2px solid #777;
+  border-right-color: transparent;
+  animation: loading-rotating linear .85s infinite;
+}
+
+// rotate animation
+@keyframes loading-rotating {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
